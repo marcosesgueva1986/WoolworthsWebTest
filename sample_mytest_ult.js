@@ -52,14 +52,14 @@ context('Assertions', () => {
 	cy.contains('Fruit & Veg').click({waitForAnimations: true})
 	
 	//Some browsers like Chrome were slower than Electron in the test so we have to wait a bit for the menu to load before clicking 
-	//Wait is not a best practice in testing so I commented it out
+	//Wait is not a best practice in testing so it's better to avoid it when possible. I commented out the wait and used parameter waitForAnimations
 	//cy.wait(3000)
 
 	cy.get('[class=categoriesNavigation-linkText]').contains('Fruit').click({waitForAnimations: true})
 		
 	cy.contains('Melons & Mangoes').click({waitForAnimations: true})
 	
-	//cy.wait(4000)	
+	cy.wait(4000)	
 	cy.contains('Watermelon').click({waitForAnimations: true, force: true}) //force: true
 	
 	cy.contains('Add to cart').click({waitForAnimations: true})
